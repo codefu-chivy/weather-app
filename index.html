@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>Weather App</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link href="./src/styles/styles.css" rel="stylesheet" type="text/css">
+		<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+	</head>
+	<body>
+		<div id="main-container">
+			<form>
+				<input type="search" id="locate" placeholder="Enter your location"/>
+				<p id="form-error"></p>
+				<input type="submit" id="search" value="Go"/>
+			</form>
+			<div id="weather-container">
+				<div id="left-container"></div>
+				<div id="right-container">
+					<div id="upper"></div>
+					<div id="lower"></div>
+				</div>
+			</div>
+			<div id="desc-container"></div>
+		</div>
+		<script src="./dist/bundle.js"></script>
+	</body>
+</html>
