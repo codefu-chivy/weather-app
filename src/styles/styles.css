@@ -1,0 +1,58 @@
+body {
+    text-align: center;
+    font-family: Montserrat, sans-serif;
+}
+#main-container {
+    width: 700px;
+    margin: 0 auto;
+}
+#weather-container {
+    display: flex;
+    flex-direction: row;
+    border: 1px solid black;
+    height: 400px;
+}
+#left-container {
+    height: inherit;
+    flex-grow: 2;
+}
+#right-container {
+    display: flex;
+    flex-direction: column;
+}
+#upper, #lower {
+    border: 1px solid black;
+    width: 200px;
+    flex-grow: 1;
+}
+#locate {
+    padding-left: 15px;
+    height: 40px;
+    width: 70%;
+    border: 1px solid #C8C8C8;
+    border-radius: 3px;
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+#search {
+    height: 40px;
+    border: none;
+    outline: none;
+    font-size: 18px;
+    margin-left: 10px;
+    width: 60px;
+    color: white;
+    border-radius: 3px;
+    background-color: #255DCF;
+    transition: all .5s;
+}
+#search:hover {
+    background-color: #7EA3EE;
+}
+#desc-container {
+    width: inherit;
+    height: 40px;
+    background-color: #3D59E6;
+    border-radius: 3px;
+    margin-top: 20px;
+}
