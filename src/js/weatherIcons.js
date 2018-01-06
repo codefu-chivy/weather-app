@@ -16,5 +16,9 @@ export const icons = {
         rainy: "./src/media/images/rain_night.png",
         thunderstorm: "./src/media/images/thunderstorm_night.png",
         snow: "./src/media/images/snow_night.png"
+    },
+    background: {
+        day: './src/media/images/clear-sky2.jpg',
+        night: './src/media/images/night_sky.jpg'
     }
 }

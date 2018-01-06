@@ -1,6 +1,8 @@
 body {
     text-align: center;
     font-family: Montserrat, sans-serif;
+    background: url("../media/images/backgrounds/night.jpg") no-repeat fixed center;
+    background-size: cover;
 }
 #main-container {
     width: 700px;
@@ -9,7 +11,6 @@ body {
 #weather-container {
     display: flex;
     flex-direction: row;
-    border: 1px solid black;
     height: 400px;
 }
 #left-container {
@@ -21,9 +22,15 @@ body {
     flex-direction: column;
 }
 #upper, #lower {
-    border: 1px solid black;
     width: 200px;
     flex-grow: 1;
+    color: white;
+}
+#lower {
+    background-color: #7E7E7E;
+}
+#upper {
+    background-color: #4D678E;
 }
 #locate {
     padding-left: 15px;
@@ -55,4 +62,72 @@ body {
     background-color: #3D59E6;
     border-radius: 3px;
     margin-top: 20px;
+}
+#description {
+    color: white;
+}
+.button {
+    margin: 10px;
+    border: none;
+    background-color: #255DCF;
+    color: white;
+    border-radius: 3px;
+    padding: 15px;
+    font-size: 18px;
+    font-family: inherit;
+    outline: none;
+    transition: all .5s;
+}
+.button:hover {
+    cursor: pointer;
+    background-color: #7EA3EE;
+}
+#temp {
+    color: white;
+    font-size: 45px;
+}
+#ten-forecast {
+    display: none;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0 auto;
+    width: 90%;
+    animation: fadeIn;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+#show-forecast {
+    border: none;
+    color: white;
+    background-color: #255DCF;
+    display: none;
+    transition: all .5s;
+    font-family: inherit;
+    font-size: 18px;
+    height: 30px;
+    margin-top: 10px;
+}
+#show-forecast:hover {
+    background-color: #7EA3EE;
+    cursor: pointer;
+}
+.day {
+    width: 300px !important;
+    background-color: #7EA3EE;
+    padding: 10px;
+    margin: 10px;
+    flex: 1;
+    flex-grow: 0;
+}
+#form-error {
+    color: red;
+    font-weight: bold;
+    font-size: 20px;
+    margin: 0;
+}
+
+@keyframes fadeIn {
+    from {opacity: 0}
+    to {opacity: 1}
 }

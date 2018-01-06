@@ -1,18 +1,23 @@
 import {icons} from "./weatherIcons";
 import {getWeatherForecast, getTenDayForecast} from "./weatherFunctions";
-import {updatePage} from "./updatePage";
+import {updatePage, updateTenDay} from "./updatePage";
 
 (function() {
     const form = document.querySelector("form");
     const send = document.getElementById("search");
     const query = document.getElementById("locate");
+    const error = document.getElementById("form-error");
+    const showTenDay = document.getElementById("show-forecast");
+    const forecast = document.getElementById("ten-forecast");
     let coords;
+    let queryVal;
     navigator.geolocation.getCurrentPosition((position) => {
         coords = {
             latitude: position.coords.latitude,
             longitude: position.coords.longitude
         }
-        getWeatherForecast(coords, (data) => {
+        getWeatherForecast(coords, error, (data) => {
+            showTenDay.style.display = "initial";
             updatePage(data);
         });
     }, (err) => {
@@ -25,7 +30,8 @@ import {updatePage} from "./updatePage";
                 latitude: json.latitude,
                 longitude: json.longitude
             }
-            getWeatherForecast(coords, (data) => {
+            getWeatherForecast(coords, error, (data) => {
+                showTenDay.style.display = "initial";
                 updatePage(data);
             });
         });
@@ -33,11 +39,28 @@ import {updatePage} from "./updatePage";
     //Event listeners
     form.addEventListener("submit", processQuery);
     search.addEventListener("click", processQuery);
+    showTenDay.addEventListener("click", () => {
+        let input;
+        if (queryVal) {
+            input = queryVal;
+        }
+        else {
+            input = coords;
+        }
+        getTenDayForecast(input, error, (data) => {
+            updateTenDay(data);
+        });
+    });
+    query.addEventListener("focus", () => {
+        error.textContent = "";
+    });
 
     function processQuery(e) {
         e.preventDefault();
-        let place = query.value;
-        getWeatherForecast(place, (data) => {
+        queryVal = query.value;
+        query.blur();
+        forecast.style.display = "none";
+        getWeatherForecast(queryVal, error, (data) => {
             updatePage(data);
         });
     }
