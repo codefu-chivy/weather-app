@@ -20,5 +20,9 @@ export const icons = {
     background: {
         day: './src/media/images/clear-sky2.jpg',
         night: './src/media/images/night_sky.jpg'
+    },
+    backgroundBody: {
+        day: "./src/media/images/backgrounds/sunny.jpg",
+        night: "./src/media/images/backgrounds/night.jpg"
     }
 }
