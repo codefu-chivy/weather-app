@@ -5,6 +5,7 @@ function updatePage(data) {
     const humContainer = document.getElementById("upper");
     const cloudContainer = document.getElementById("lower");
     const descContainer = document.getElementById("desc-container");
+    const body = document.querySelector("body");
     let tempF = convertToFC(data.main.temp).fahrenheit;
     let tempC = convertToFC(data.main.temp).celsius;
     let humidity = data.main.humidity;
@@ -19,10 +20,14 @@ function updatePage(data) {
     if (hour > 17 || hour < 4) {
         time = icons.night;
         tempContainer.style.background = `url(${icons.background.night}) no-repeat center`;
+        body.style.background = `url(${icons.backgroundBody.night}) no-repeat center fixed`;
+        body.style.backgroundSize = "cover";
     }
     else {
         time = icons.day;
         tempContainer.style.background = `url(${icons.background.day}) no-repeat center`;
+        body.style.background = `url(${icons.backgroundBody.day}) no-repeat center fixed`;
+        body.style.backgroundSize = "cover";
     }
     weatherIcon = determineIcon(id, time);
     tempContainer.innerHTML = `<img id=icon src=${weatherIcon}><h1 id=temp>${tempF}&#186 F</h1><button id='fah' class="button">&#186;F</button><button id='cel' class="button">&#186;C</button>`;
